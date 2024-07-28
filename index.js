@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded',()=>{
 const url="https://api.dictionaryapi.dev/api/v2/entries/en/"
-const sound=document.getElementById('sound')
+
 const result=document.getElementById('results')
 const btn=document.getElementById('srch-btn')
 
@@ -18,6 +18,7 @@ btn.addEventListener('click',()=>{
         result.innerHTML=`<div id="word">
             <h3>${input}</h3>
             <button onclick="playSound()"><i class="fa-solid fa-volume-high"></i></button>
+             
         </div>
         <div id="details">
             <p>${wordData.meanings[0].partOfSpeech}</p>
@@ -28,18 +29,27 @@ btn.addEventListener('click',()=>{
 
         sound.setAttribute("src",audioSrc)
         console.log(sound)
-
+         
     })
     .catch(error => {
         console.error('Error fetching data:', error);
         result.innerHTML = `<p>Error fetching data. Please try again.</p>`;
+        
     })
-   
+    document.getElementById('input-box').value=''
 })
-window.playSound=function() {
-    if(sound.src){   
-    sound.play();
-    }
-}
+const sound=document.getElementById('sound')
 
+window.playSound = function() {
+    if (sound.src) {
+         sound.play()//.catch(error => {
+        //     console.error('Error playing audio:', error);
+        //     result.innerHTML = `<p>Error playing audio. Please try again.</p>`;
+        // });
+    // } else {
+    //     console.warn('No audio source set.');
+    //     result.innerHTML += `<p>No audio available for this word.</p>`;
+    }
+};
+ //input.value=''window.playSound=function() {
 })
