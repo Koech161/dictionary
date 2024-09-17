@@ -21,11 +21,11 @@ btn.addEventListener('click',()=>{
              
         </div>
         <div id="details">
-            <p>${wordData.meanings[0].partOfSpeech}</p>
-            <p>/${wordData.phonetic || ''}/</p>
+            <p class="text-muted">${wordData.meanings[0].partOfSpeech}</p>
+            <p class="text-muted">/${wordData.phonetic || ''}/</p>
         </div>
-        <p id="word-meaning">${wordData.meanings[0].definitions[0].definition}</p>
-        <p id="word-example">${wordData.meanings[0].definitions[0].example || ''}</p>`
+        <p id="word-meaning" class='mt-3'>${wordData.meanings[0].definitions[0].definition}</p>
+        <p id="word-example" class=mt-2 text-muted>${wordData.meanings[0].definitions[0].example || ''}</p>`
 
         sound.setAttribute("src",audioSrc)
         console.log(sound)
